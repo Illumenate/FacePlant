@@ -1,4 +1,3 @@
-
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -25,7 +24,7 @@ public class HOG
       cartToPolar(gx, gy, mag, angle, 1); 
       */
       
-      /*try {
+      try {
           int kernelSize = 9;
           System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
           
@@ -38,7 +37,7 @@ public class HOG
                 put(0,1,0);
                 put(0,2,1);
 
-                put(1,0-2);
+                put(1,0,-2);
                 put(1,1,0);
                 put(1,2,2);
 
@@ -53,14 +52,16 @@ public class HOG
           
        } catch (Exception e) {
           System.out.println("Error: " + e.getMessage());
-       }*/
+          System.out.println("asdf");
+       }
+      
 	   //import cv2
 	   //import numpy as np
 	   //from matplotlib import pyplot as plt
 
 	  
 	   //img0 = cv2.imread('SanFrancisco.jpg',)
-	   Mat img0 = Imgcodecs.imread("windows.jpg");
+	   /*Mat img0 = Imgcodecs.imread("windows.jpg");
 
 	   // converting to gray scale
 	   gray = cvtColor(img0, cv2.COLOR_BGR2GRAY);
@@ -82,6 +83,6 @@ public class HOG
 	   plt.subplot(2,2,4),plt.imshow(sobely,cmap = 'gray')
 	   plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 
-	   plt.show()
+	   plt.show()*/
    }
 }
