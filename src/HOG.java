@@ -6,8 +6,6 @@ import org.opencv.imgproc.Imgproc;
  
 public class HOG {
 	public static Mat gradient(String filename) {
-		//Mat destination=new Mat();
-			
 	        int kernelSize = 9;
 	        System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
 	        
@@ -31,9 +29,7 @@ public class HOG {
 	        };	      
 	        
 	        Imgproc.filter2D(source, destination, -1, kernel);
-	        Imgcodecs.imwrite("out.jpg", destination);
-	        
-	        /*filename.split(".")[0]+"_gradients."+filename.split(".")[1]*/
+	        Imgcodecs.imwrite(filename.split("\\.")[0]+"_gradients."+filename.split("\\.")[1], destination);
 		return destination;
 	}
    public static void main( String[] args ) {
