@@ -1,5 +1,6 @@
 import java.io.File;
 
+import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
@@ -19,8 +20,9 @@ import org.opencv.objdetect.Objdetect;
  */
 public class mySVM {
 	public static void main(String[] args) {
+		System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
 		int absoluteFaceSize=30;
-		String filename="hello";
+		String filename="kidslightened.jpg";
 		//Mat frame;
 		Mat grayFrame=Imgcodecs.imread(filename,  Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
 		MatOfRect faces=new MatOfRect();

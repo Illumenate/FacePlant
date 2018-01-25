@@ -33,6 +33,6 @@ public class HOG {
 		return destination;
 	}
    public static void main( String[] args ) {
-	   gradient("grayscale.jpg");
+	   gradient("bottlelighter.png");
    }
 }
