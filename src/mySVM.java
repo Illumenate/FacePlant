@@ -13,30 +13,22 @@ import org.opencv.ml.SVM;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.objdetect.Objdetect;
 
-/**DOCS
- * 
- * @author Jesse
- *
- */
 public class mySVM {
 	public static void main(String[] args) {
 		System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
 		int absoluteFaceSize=30;
-		String filename="kidslightened.jpg";
-		//Mat frame;
+		//Insert name of image to detect
+		String filename="";
 		Mat grayFrame=Imgcodecs.imread(filename,  Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
 		MatOfRect faces=new MatOfRect();
-		//Imgproc.cvtColor(frame, grayFrame, Imgproc.COLOR_BGR2GRAY);
-		//Imgproc.equalizeHist(grayFrame, grayFrame);
 		
-		if (absoluteFaceSize == 0)
-		{
+		if (absoluteFaceSize == 0){
 		    int height = grayFrame.rows();
-		    if (Math.round(height * 0.2f) > 0)
-		    {
+		    if (Math.round(height * 0.2f) > 0){
 		            absoluteFaceSize = Math.round(height * 0.2f);
 		    }
 		}
+		//Insert file path of HOG as argument
 		CascadeClassifier faceCascade=new CascadeClassifier();
 		faceCascade.detectMultiScale(grayFrame, faces, 1.1, 2, 0 | Objdetect.CASCADE_SCALE_IMAGE, new Size(absoluteFaceSize, absoluteFaceSize), new Size());
 		
@@ -44,6 +36,10 @@ public class mySVM {
 		for (int i = 0; i < facesArray.length; i++) {
 		    Imgproc.rectangle(grayFrame, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0, 255), 3);
 		}
+		
+		
+		//Alternative training stuff still in development
+		
 	 // System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 	// String path="yeet";
     /* Mat classes = new Mat();
